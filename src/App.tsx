@@ -18,6 +18,7 @@ import {
   X,
 } from 'lucide-react'
 import { useState } from 'react'
+import ProPage from './ProPage'
 
 const APP_URL = 'https://app.radas.my'
 
@@ -34,8 +35,8 @@ const researchPoints = [
   { icon: Scale, title: 'Pertimbangan', text: 'Persaingan tinggi memerlukan angle yang lebih spesifik dan bukti penggunaan.' },
 ]
 
-const starterFeatures = ['Research terpilih', 'Insight dan sebab produk layak diuji', 'Simpan research asas', 'Akses komuniti RADAS']
-const proFeatures = ['Akses penuh Research Library', 'Research baharu yang dikemas kini', 'Action Planner', 'Campaign Workspace', 'Akses penuh Video Viral/Convert', 'Akses komuniti RADAS PRO']
+const starterFeatures = ['Research berstatus Free', 'Fakta asas produk', 'Harga dan anggaran komisen', 'Simpan research untuk rujukan']
+const proFeatures = ['Semua Research Free dan PRO', 'Verdict dan sebab keputusan', 'Creator Competition dan GMV Max', 'Research Insight penuh', 'Content angles, video rujukan dan Execution Playbook']
 
 const trustStats = [
   { icon: FileCheck2, value: '10', label: 'Research Disemak' },
@@ -48,11 +49,15 @@ const faqs = [
   ['Adakah RADAS menjamin jualan?', 'Tidak. RADAS membantu anda membuat keputusan dan merancang eksperimen dengan lebih tersusun. Jualan tetap bergantung pada pelaksanaan, content, pasaran dan faktor platform.'],
   ['Adakah produk dipilih kerana komisen tinggi?', 'Tidak semata-mata. Research melihat masalah pelanggan, kejelasan tawaran, potensi content, pertimbangan dan kesesuaian untuk diuji.'],
   ['Siapa yang sesuai menggunakan RADAS?', 'Affiliate Malaysia yang mahu berhenti memilih produk secara rawak dan membina proses kerja yang lebih konsisten.'],
-  ['Apa beza RADAS Free dan RADAS Pro?', 'RADAS Free memberi akses kepada research terpilih. RADAS Pro akan membuka research dan tools pelaksanaan yang lebih lengkap.'],
+  ['Apa beza RADAS Free dan RADAS Pro?', 'RADAS Free memberi akses kepada research terpilih dan fakta asas. RADAS Pro membuka research mendalam, content angles dan panduan pelaksanaan yang lebih lengkap.'],
 ]
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+
+  if (window.location.pathname === '/pro' || window.location.pathname === '/pro/') {
+    return <ProPage />
+  }
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -202,8 +207,8 @@ function App() {
               <ul>{starterFeatures.map((item) => <li key={item}><Check /> {item}</li>)}</ul>
             </article>
             <article className="price-card featured">
-              <span className="coming">AKAN DATANG</span><span className="plan-label">RADAS PRO</span><h3>Sistem penuh</h3><p>Untuk affiliate yang mahu bergerak daripada research kepada tindakan dan hasil.</p>
-              <a className="button" href={APP_URL}>Mulakan dengan RADAS Starter</a>
+              <span className="plan-label">RADAS PRO</span><h3>Research ke tindakan</h3><p>Untuk affiliate yang mahu memahami produk, memilih angle content dan merancang eksperimen dengan lebih jelas.</p>
+              <a className="button" href="/pro">Kenali RADAS PRO <ArrowRight size={17} /></a>
               <ul>{proFeatures.map((item) => <li key={item}><Check /> {item}</li>)}</ul>
             </article>
           </div>
