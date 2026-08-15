@@ -10,6 +10,7 @@ import {
   FileCheck2,
   Layers3,
   Menu,
+  RotateCcw,
   ShieldCheck,
   Scale,
   Sparkles,
@@ -23,16 +24,16 @@ import ProPage from './ProPage'
 const APP_URL = 'https://app.radas.my'
 
 const steps = [
-  { icon: FileSearch, image: '/workflow/research.webp', number: '01', title: 'Research', text: 'Fahami produk, pelanggan, masalah dan potensi content sebelum memilih.' },
-  { icon: Target, image: '/workflow/pilih.webp', number: '02', title: 'Pilih', text: 'Buat keputusan berdasarkan sebab yang jelas—bukan sekadar komisen atau viral.' },
-  { icon: Sparkles, image: '/workflow/content.webp', number: '03', title: 'Bina Content', text: 'Tukar insight research kepada angle, hook dan content yang boleh diuji.' },
-  { icon: BarChart3, image: '/workflow/belajar.webp', number: '04', title: 'Belajar', text: 'Rekod tindakan dan gunakan hasil sebenar untuk eksperimen seterusnya.' },
+  { icon: FileSearch, number: '01', title: 'Research', text: 'Fahami produk, pelanggan dan potensi content.' },
+  { icon: Target, number: '02', title: 'Pilih', text: 'Buat keputusan berdasarkan sebab yang jelas.' },
+  { icon: Sparkles, number: '03', title: 'Bina Content', text: 'Tukar insight kepada angle dan eksperimen.' },
+  { icon: BarChart3, number: '04', title: 'Belajar', text: 'Nilai hasil untuk tindakan seterusnya.' },
 ]
 
 const researchPoints = [
-  { icon: CircleAlert, title: 'Masalah pelanggan', text: 'Produk menyelesaikan masalah yang mudah difahami dan ditunjukkan dalam video.' },
-  { icon: Video, title: 'Potensi content', text: 'Banyak sudut demonstrasi, perbandingan dan situasi harian boleh diteroka.' },
-  { icon: Scale, title: 'Pertimbangan', text: 'Persaingan tinggi memerlukan angle yang lebih spesifik dan bukti penggunaan.' },
+  { icon: CircleAlert, title: 'Masalah pelanggan', text: 'Mudah difahami' },
+  { icon: Video, title: 'Potensi content', text: 'Demonstrasi & perbandingan' },
+  { icon: Scale, title: 'Pertimbangan', text: 'Persaingan tinggi' },
 ]
 
 const starterFeatures = ['Research berstatus Free', 'Fakta asas produk', 'Harga dan anggaran komisen', 'Simpan research untuk rujukan']
@@ -129,53 +130,64 @@ function App() {
             <h2>Satu sistem untuk memilih, bertindak dan belajar.</h2>
             <p>RADAS menyusun perjalanan affiliate supaya setiap research membawa kepada tindakan—bukan sekadar disimpan.</p>
           </div>
-          <div className="steps-grid">
-            {steps.map(({ icon: Icon, image, number, title, text }) => (
-              <article className="step-card" key={title}>
-                <div className="step-visual">
-                  <img src={image} alt="" loading="lazy" />
-                  <span className="step-number">{number}</span>
-                  <div className="icon-box"><Icon /></div>
-                </div>
-                <div className="step-copy"><h3>{title}</h3><p>{text}</p></div>
-              </article>
-            ))}
+          <div className="workflow-infographic">
+            <div className="workflow-track" aria-label="Kitaran Research kepada Tindakan RADAS">
+              {steps.map(({ icon: Icon, number, title, text }) => (
+                <article className="workflow-step" key={title}>
+                  <span className="workflow-number">{number}</span>
+                  <div className="workflow-icon"><Icon aria-hidden="true" /></div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </article>
+              ))}
+            </div>
+            <div className="workflow-feedback"><RotateCcw aria-hidden="true" /><span>Insight baharu</span><small>Belajar, tambah baik dan kembali kepada research.</small></div>
           </div>
-          <div className="rar-band">
-            <div className="rar-icon"><BarChart3 /></div>
-            <div><span>METRIK UTAMA RADAS</span><h3>Research-to-Action Rate</h3><p>Nilai sebenar research bukan berapa banyak yang dibaca—tetapi berapa banyak yang membawa kepada eksperimen content.</p></div>
-            <a href={APP_URL}>Mulakan research <ArrowRight /></a>
-          </div>
+          <aside className="workflow-cta" aria-label="Mulakan Research RADAS">
+            <div className="workflow-cta-icon"><BarChart3 aria-hidden="true" /></div>
+            <div className="workflow-cta-copy">
+              <span>RESEARCH-TO-ACTION</span>
+              <h3>Jangan biarkan research berhenti sebagai maklumat.</h3>
+              <p>Pilih satu produk, tentukan angle dan mulakan eksperimen content pertama anda.</p>
+            </div>
+            <a className="button workflow-cta-button" href={APP_URL}>Mulakan Research Percuma <ArrowRight /></a>
+          </aside>
         </section>
 
         <section className="section research-section section-pad" id="research">
           <div className="section-heading split-heading research-heading">
             <div><span className="kicker">CONTOH RESEARCH RADAS</span><h2>Bukan sekadar “produk ini bagus”.</h2></div>
-            <div className="section-intro-note"><FileSearch /><p>Setiap research menerangkan apa yang perlu difahami, apa yang boleh diuji dan perkara yang perlu dipertimbangkan.</p></div>
+            <div className="section-intro-note"><FileSearch /><p>Lihat signal, pertimbangan dan verdict dalam satu paparan.</p></div>
           </div>
           <div className="research-showcase">
+            <svg className="research-flow-lines" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
+              <path className="flow-base" d="M180 385 C480 385 590 250 760 250" />
+              <path className="flow-base" d="M390 385 C540 385 620 250 760 250" />
+              <path className="flow-base" d="M600 385 C675 385 700 250 760 250" />
+              <path className="flow-stream stream-one" d="M180 385 C480 385 590 250 760 250" />
+              <path className="flow-stream stream-two" d="M390 385 C540 385 620 250 760 250" />
+              <path className="flow-stream stream-three" d="M600 385 C675 385 700 250 760 250" />
+            </svg>
             <div className="showcase-main">
               <div className="showcase-label"><span>Research #001</span><span className="verified"><ShieldCheck /> Disemak</span></div>
-              <div className="research-signal-row">
-                <div><CircleAlert /><span><small>MASALAH</small><strong>Mudah difahami</strong></span></div>
-                <div><Video /><span><small>CONTENT</small><strong>Boleh didemonstrasi</strong></span></div>
-                <div><Target /><span><small>FOKUS</small><strong>Layak diuji</strong></span></div>
+              <div className="showcase-product">
+                <span>SNAPSHOT PRODUK</span>
+                <h3>Produk Keperluan Harian</h3>
+                <p>Masalah jelas · Visual kuat · Banyak angle</p>
               </div>
-              <h3>Produk Keperluan Harian dengan Demonstrasi Jelas</h3>
-              <p className="showcase-summary">Produk yang mudah difahami biasanya memberi affiliate lebih banyak ruang untuk menghasilkan content berbentuk masalah, demonstrasi dan hasil penggunaan.</p>
               <div className="research-points">
                 {researchPoints.map(({ icon: Icon, title, text }) => <div key={title}><span className="research-point-icon"><Icon /></span><p><strong>{title}</strong>{text}</p></div>)}
               </div>
             </div>
             <aside className="verdict-card">
               <span>VERDIK RADAS</span>
-              <div className="verdict-icon"><CircleCheck /></div>
+              <div className="verdict-pulse" aria-hidden="true"><span /><span /><span /><div className="verdict-icon"><CircleCheck /></div></div>
               <h3><CircleCheck /> Layak Diuji</h3>
-              <p>Sesuai untuk affiliate yang mampu menghasilkan demonstrasi jelas dan mahu menguji beberapa angle masalah.</p>
+              <p>Sesuai untuk content demonstrasi dan angle masalah.</p>
               <div className="verdict-signals"><span>Masalah jelas</span><span>Visual kuat</span><span>Boleh diuji</span></div>
               <hr />
-              <small>Nota penting</small>
-              <p className="note">Verdik bukan jaminan jualan. Ia ialah keputusan research untuk membantu anda memilih eksperimen seterusnya.</p>
+              <small>NOTA</small>
+              <p className="note">Panduan research, bukan jaminan jualan.</p>
             </aside>
           </div>
         </section>
