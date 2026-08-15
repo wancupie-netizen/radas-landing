@@ -99,10 +99,12 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-visual hero-story" aria-label="Perjalanan daripada research produk kepada content dan potensi komisen">
-            <img src="/hero-research-income.webp" alt="Affiliate Malaysia membuat research produk sebelum menghasilkan content" />
-            <div className="hero-story-flow"><span>Research</span><ArrowRight /><span>Content</span><ArrowRight /><span>Komisen</span></div>
-            <div className="hero-story-note"><Sparkles /><div><small>RESEARCH DAHULU</small><strong>Bina content dengan arah yang lebih jelas.</strong></div></div>
+          <div className="hero-visual hero-community">
+            <img
+              src="/hero-rakyat-malaysia.webp"
+              alt="Rakyat Malaysia menggunakan laptop, tablet dan telefon untuk research serta menghasilkan content"
+              fetchPriority="high"
+            />
           </div>
         </section>
 
