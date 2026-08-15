@@ -86,10 +86,10 @@ function App() {
           <div className="hero-glow glow-two" />
           <div className="hero-copy">
             <div className="eyebrow"><ShieldCheck size={16} /> Research neutral untuk affiliate Malaysia</div>
-            <h1>Berhenti pilih produk secara <span>teka-teki.</span></h1>
-            <p className="hero-lead">RADAS membantu anda memahami produk, melihat potensi content dan membuat keputusan yang lebih yakin sebelum mula mempromosi.</p>
+            <h1>Buat keputusan produk dengan <span>lebih yakin.</span></h1>
+            <p className="hero-lead">RADAS membantu affiliate Malaysia menukar research kepada pilihan, content dan eksperimen yang lebih tersusun.</p>
             <div className="hero-actions">
-              <a className="button" href={APP_URL}>Terokai Research Percuma <ArrowRight size={18} /></a>
+              <a className="button" href={APP_URL}>Mulakan dengan RADAS <ArrowRight size={18} /></a>
               <a className="text-link" href="#cara">Lihat cara RADAS berfungsi <ChevronRight size={17} /></a>
             </div>
             <div className="trust-row">
