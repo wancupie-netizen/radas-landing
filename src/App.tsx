@@ -8,12 +8,17 @@ import {
   CircleAlert,
   FileSearch,
   FileCheck2,
+  Globe2,
   Layers3,
   Menu,
+  Network,
   RotateCcw,
   ShieldCheck,
+  ShoppingBag,
   Scale,
   Sparkles,
+  Smartphone,
+  Store,
   Target,
   Video,
   X,
@@ -44,6 +49,15 @@ const trustStats = [
   { icon: Layers3, value: '3', label: 'Lapisan Analisis' },
   { icon: ShieldCheck, value: '100%', label: 'Research Neutral' },
   { icon: Ban, value: 'Tiada', label: 'Verdict Berbayar' },
+]
+
+const researchPlatforms = [
+  { icon: Smartphone, label: 'TikTok Shop' },
+  { icon: ShoppingBag, label: 'Shopee Affiliate' },
+  { icon: Network, label: 'Affiliate Network' },
+  { icon: Globe2, label: 'Direct Website' },
+  { icon: Smartphone, label: 'Social Commerce' },
+  { icon: Store, label: 'Marketplace' },
 ]
 
 const faqs = [
@@ -122,6 +136,22 @@ function App() {
               <h3>{label}</h3>
             </article>
           ))}
+        </section>
+
+        <section className="platform-marquee section-pad" aria-label="Platform yang diliputi dalam Research RADAS">
+          <p>PLATFORM YANG DILIPUTI DALAM RESEARCH RADAS</p>
+          <div className="platform-window">
+            <div className="platform-track">
+              {[false, true].map((isDuplicate) => (
+                <div className="platform-set" aria-hidden={isDuplicate || undefined} key={String(isDuplicate)}>
+                  {researchPlatforms.map(({ icon: Icon, label }) => (
+                    <span className="platform-item" key={label} style={{ fontWeight: 800, letterSpacing: '-.012em' }}><span className="platform-icon"><Icon aria-hidden="true" /></span>{label}</span>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+          <small style={{ fontWeight: 500 }}>Nama platform digunakan untuk tujuan rujukan sahaja. Tiada sokongan atau kerjasama rasmi dinyatakan.</small>
         </section>
 
         <section className="section section-pad" id="cara">
